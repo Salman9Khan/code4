@@ -1,5 +1,12 @@
 name: Java Maven CI
-Create CI workflow for Java Maven project
+java-version: '17'
+    distribution: temurin
+    cache: maven
+    cache-dependency-path: backend/pom.xml
+
+- name: Build and test with Maven
+  working-directory: backend
+  run: mvn --batch-mode clean verify
 on:
   push:
     branches:
